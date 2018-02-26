@@ -8,7 +8,7 @@ This repository stores functions written to download MODIS landcover data for co
 Instructions for use
 --------------------
 
-### If need be, install `MODISTools`
+#### 1. If need be, install `MODISTools`
 
 Please note that older versions of `MODISTools` may have problems with broken links! It is therefore better to remove old versions first and install the most up-to-date version, i.e.
 
@@ -30,20 +30,20 @@ followed by
 install.packages("yourfilepath/MODISTools2.tar.gz",repos=NULL,type="source")
 ```
 
-#### 1. Import coordinates data (individual sites as rows with 'lat' and 'long' as colnames)
+#### 2. Import coordinates data (individual sites as rows with 'lat' and 'long' as colnames)
 
 ``` r
 test.dat <- data.frame(lat = c(-27.4678, -27.5636, -27.5598), 
                        long = c(153.0067, 152.2800, 151.9507))
 ```
 
-#### 2. Source functions needed for MODIS downloading and processing from GitHub
+#### 3. Source functions needed for MODIS downloading and processing from GitHub
 
 ``` r
 source("https://raw.githubusercontent.com/nicholasjclark/LandcoverMODIS/master/R/Landcover_functions.R")
 ```
 
-#### 3. Download data for the specified year (or range of years)
+#### 4. Download data for the specified year (or range of years)
 
 **!! but don't include 2010-2012, see below !!)**
 This stores the raw downloaded data in a new 'LandCover' folder
