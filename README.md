@@ -45,7 +45,8 @@ source("https://raw.githubusercontent.com/nicholasjclark/LandcoverMODIS/master/R
 
 #### 4. Download data for the specified year (or range of years)
 
-**!! but don't include 2010-2012, see below !!)**
+**!! but don't include 2010-2012, see below !!**
+
 This stores the raw downloaded data in a new 'LandCover' folder
 
 ``` r
@@ -55,6 +56,7 @@ download_landcover(years_gather = c(2006:2008), coordinates = test.dat)
 #### 4. Once ALL of the necessary files are downloaded, summarise them
 
 **!! Do not summarise before all necessary raw files are downloaded (raw files get deleted) !!**
+
 This writes a .csv summary file in the 'LandCover' folder and deletes the raw files
 
 ``` r
