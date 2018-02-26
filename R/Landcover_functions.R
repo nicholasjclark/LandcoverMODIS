@@ -188,7 +188,7 @@ prop_landcover <-
     write.table(lc.summary, file = paste(Dir, "/", "MODIS_Land_Cover_Summary ", Sys.Date(), ".csv", sep = ""),
                 sep = ",", row.names = FALSE)
     
-    cat("Done! Check the 'MODIS Land Cover Summary' output file.\n")
+    cat("Done! Check the 'MODIS_Landcover_summary.csv' output file.\n")
     #End function prop_landcover
   }
 

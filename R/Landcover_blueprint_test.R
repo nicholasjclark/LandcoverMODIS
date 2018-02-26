@@ -7,7 +7,9 @@
 #### If need be, install MODISTools2 ####
 #Note, older versions of MODISTools may have problems with broken links!
 #Better to remove old versions first and install the most up-to-date version
-#remove.packages('MODISTools')
+#remove.packages('MODISTools') and then use
+#install.packages("https://modis.ornl.gov/files/modissoapservice/MODISTools2.tar.gz",repos=NULL,type="source")
+#or ....
 #manually downlaod MODISTools2.tar.gz here (https://modis.ornl.gov/data/modis_webservice.html)
 #install.packages("yourfilepath/MODISTools2.tar.gz",repos=NULL,type="source")
 
