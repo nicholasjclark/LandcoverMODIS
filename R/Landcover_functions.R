@@ -4,8 +4,14 @@
 # Inputs:
 #   years_gather: string of numeric years to gather data for each point
 #   coordinates: dataframe with colnames 'lat' and 'long'
+#   size: Numeric vector of two non-negative integers defining the 
+#         dimensions of tile requested at each location. The first element 
+#         identifies the distance from the centre to the bottom/top (in both directions), 
+#         and the second element to the left/right (in both directions) in km. 
+#         For example, Size = c(0,0) identifies the centre pixel only, whereas Size = c(1,1) 
+#         identifies a tile of 2kmsq. Default is c(10, 10)
 #
-download_landcover = function(years_gather, coordinates){
+download_landcover = function(years_gather, coordinates, size){
 library(MODISTools)
 library(dplyr)
 
@@ -18,6 +24,10 @@ if(any(years_gather %in% c(2010, 2011, 2012))){
 #Gathering data for more than ~100 points at a time can lead to log-off problems
 if(nrow(coordinates)>100){
   stop('Extracting for > 100 points at a time often causes log-off problems / loss of data. Better to subset')
+}
+  
+if(missing(size)){
+  size <- c(10, 10)
 }
   
 #Create folder in the working directory to save summary statistics for each site in each year
@@ -34,7 +44,7 @@ modis.year.subsets <- lapply(years_gather, function(x){
 #and save to the new 'LandCover' folder in the working directory
   MODISSubsets(LoadDat = modis.data, Product = "MCD12Q1", 
                Bands = "Land_Cover_Type_1",
-               Size = c(10, 10), SaveDir = landcovpath)
+               Size = size, SaveDir = landcovpath)
   
 })
 #End function download_landcover
